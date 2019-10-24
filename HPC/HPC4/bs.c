@@ -68,25 +68,25 @@ int main(int argc,char** argv)
     if(my_id == root_process)
     {
 		srand(0);
-	int i;
-	int N =4096;
+		int i;
+		int N =4096;
 
-	for(i=0;i<N;i++)
-	{
-		arr[i]=rand()%15000;
-	}
+		for(i=0;i<N;i++)
+		{
+			arr[i]=rand()%15000;
+		}
 
-	qsort(arr,N,sizeof(int),cmpfunc);
+		qsort(arr,N,sizeof(int),cmpfunc);
 
-	int ammu = 1<<12;
+		int ammu = 1<<12;
 
-	int modified_N = removeDuplicates(arr,ammu);
-	printf("modified N = %d\n",modified_N);
-	elemtoS = arr[856];
+		int modified_N = removeDuplicates(arr,ammu);
+		printf("modified N = %d\n",modified_N);
+		elemtoS = arr[856];
 
 
-    avg_elements_per_process = modified_N / num_procs;
-	printf("average elelemts per process = %d\n",avg_elements_per_process);
+	    avg_elements_per_process = modified_N / num_procs;
+		printf("average elelemts per process = %d\n",avg_elements_per_process);
 
         /*distribute a portion of the array to each child process*/
 		int id;
